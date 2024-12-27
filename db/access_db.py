@@ -13,11 +13,11 @@ def insert_animal_fact(animal, fact):
     finally:
         conn.close()
 
-def mostrar_usuarios():
+def get_facts():
 
     conn = sqlite3.connect('animalfacts.db')
     cursor = conn.cursor()
-    cursor.execute('SELECT * FROM animal')
+    cursor.execute('SELECT * FROM animalfacts')
     animalfacts = cursor.fetchall()
     conn.close()
 
