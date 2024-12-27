@@ -1,9 +1,16 @@
 import sqlite3
+import os
 
 
 def db_init():
     # Create DB
-    conn = sqlite3.connect('animalfacts.db')
+
+    db_name = 'animalfacts.db'
+
+    if os.path.exists(db_name):
+        os.remove(db_name)
+
+    conn = sqlite3.connect(db_name)
 
     # Create cursor over DB
     cursor = conn.cursor()
